@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+require("babel-core/register");
+
+const http = require("http");
+
+const app = require("../server/app");
+
+var port = normalizePort(process.env.PORT || "3000");
+app.set("port", port);
+const server = http.createServer(app);
+server.listen(port, () => {
+    const addr = server.address();
+    console.info(`The server is now listening at port http://${addr.address === "::" ? "localhost" : addr.address}:${port}/`);
+});
+
+
+function normalizePort(val)
+{
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+    return false;
+}

@@ -1,0 +1,37 @@
+{
+  "name": "count-down-3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./bin/www"
+  },
+  "keywords": [
+    "count",
+    "down",
+    "3d",
+    "threejs",
+    "three"
+  ],
+  "author": "Henry Li (henry1943@163.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^5.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.8.5",
+    "jquery": "^2.2.0",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.2",
+    "mx6": "^6.0.6",
+    "style-loader": "^0.13.0",
+    "three": "^0.73.2",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.12",
+    "webpack-dev-middleware": "^1.5.1"
+  },
+  "dependencies": {
+    "babel-core": "^5.8.35",
+    "express": "^4.13.4",
+    "jade": "^1.11.0"
+  }
+}
