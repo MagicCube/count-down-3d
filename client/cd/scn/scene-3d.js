@@ -24,7 +24,7 @@ export default class Scene3D extends mx.Scene
 
     _initCamera()
     {
-        this._camera = new THREE.PerspectiveCamera(60, this.frame.width / this.frame.height, 1, 1000);
+        this._camera = new THREE.PerspectiveCamera(60, this.frame.width / this.frame.height, 1, 2000);
     }
 
     _initRenderer()
