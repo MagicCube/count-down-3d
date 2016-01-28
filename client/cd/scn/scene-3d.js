@@ -16,7 +16,10 @@ export default class Scene3D extends mx.Scene
         this._initCamera();
         this._initRenderer();
         this._initTrackballControls();
-        this._initStats();
+        //this._initStats();
+
+        this._initLights();
+        this._initStage();
     }
 
     _initCamera()
@@ -61,10 +64,42 @@ export default class Scene3D extends mx.Scene
 		this.$element.append($stats);
     }
 
+    _initLights()
+    {
+        let light = null;
+
+		light = new THREE.DirectionalLight(0xffffff);
+		light.position.set(1, 1, 1);
+		this.scene.add(light);
+
+		light = new THREE.DirectionalLight(0x002288);
+		light.position.set(-1, -1, -1);
+		this.scene.add(light);
+
+		light = new THREE.AmbientLight(0x222222);
+		this.scene.add(light);
+    }
+
+    _initStage()
+    {
+        this._stage = new THREE.Object3D();
+        this.scene.add(this._stage);
+    }
+
+
+
+
+
     _scene = null;
     get scene()
     {
         return this._scene;
+    }
+
+    _stage = null;
+    get stage()
+    {
+        return this._stage;
     }
 
     _camera = null;
@@ -80,9 +115,10 @@ export default class Scene3D extends mx.Scene
     }
 
 
-    render()
+    render(time)
     {
-        this._stats.update();
+        TWEEN.update(time);
+        //this._stats.update();
         this._trackballControls.update();
         this._renderer.render(this.scene, this.camera);
     }

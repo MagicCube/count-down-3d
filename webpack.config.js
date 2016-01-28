@@ -20,6 +20,7 @@ const plugins = [
         "$": "jquery",
         "jQuery": "jquery",
         "THREE": "three",
+        "TWEEN": "tween.js",
         "mx": "mx6"
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -55,6 +56,7 @@ module.exports = {
         vendor: [
             "jquery",
             "three",
+            "tween.js",
             "mx6"
         ],
         cd: "./cd"

@@ -29,9 +29,9 @@ export default class Application extends mx.Application
         this.loop();
     }
 
-    loop()
+    loop(time)
     {
-        this.mainScene.render();
+        this.mainScene.render(time);
         window.requestAnimationFrame(this.loop.bind(this));
     }
 }
