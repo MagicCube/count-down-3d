@@ -165,9 +165,9 @@ export default class MainScene3D extends Scene3D
         this._ballPool.forEach(ball => {
             new TWEEN.Tween(ball.position)
                 .to({
-                    x: (Math.random() - 0.5) * 1500,
-                    y: (Math.random() - 0.5) * 1500,
-                    z: (Math.random() - 0.5) * 1500
+                    x: (Math.random() - 0.5) * 2000,
+                    y: (Math.random() - 0.5) * 2000,
+                    z: (Math.random() - 0.5) * 2000
                 }, 600)
                 .easing(TWEEN.Easing.Quadratic.In)
                 .start();
