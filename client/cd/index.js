@@ -1,3 +1,11 @@
-console.log("$", $);
-console.log("mx", mx);
-console.log("THREE", THREE);
+import "./res/index.less";
+
+import Application from "./app/application";
+
+const app = new Application();
+window.app = app;
+
+$(() => {
+    app.placeAt(document.body);
+    app.run();
+});

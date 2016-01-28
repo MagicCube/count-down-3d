@@ -6,10 +6,7 @@ html(lang="en")
         meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
         meta(name="viewport", content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no")
         title Counting Down - SAP
-        block head
-        block stylesheets
+        link(rel="stylesheet", href=app.get("assets path") + "/cd/res/cd.css")
     body
-        block body
-        block scripts
-            script(src=app.get("assets path") + "/vendor/vendor.js")
-            script(src=app.get("assets path") + "/cd/cd.js")
+        script(src=app.get("assets path") + "/vendor/vendor.js")
+        script(src=app.get("assets path") + "/cd/cd.js")
