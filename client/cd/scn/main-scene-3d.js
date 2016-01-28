@@ -31,6 +31,9 @@ export default class MainScene3D extends Scene3D
         this.camera.position.z = 600;
         this.renderer.setClearColor(this.scene.fog.color);
 
+        this._$splash = $("<div id=splash>");
+        this.$container.append(this._$splash);
+
         this._$nanjing = $("<div id=nanjing>");
         this.$container.append(this._$nanjing);
 
@@ -98,9 +101,18 @@ export default class MainScene3D extends Scene3D
 
 
 
+    start()
+    {
+        this._$splash.fadeOut("slow", () => {
+            this.startCountDown();
+        });
+    }
+
+
+
     startCountDown()
     {
-        this.digit = 1;
+        this.digit = 9;
         const countDownTimer = setInterval(() => {
             const digit = this.digit - 1;
             if (digit >= 0)
@@ -121,7 +133,7 @@ export default class MainScene3D extends Scene3D
                 });
 
                 new TWEEN.Tween({ color: 0xcc })
-                    .to({ color: 0 }, 10000)
+                    .to({ color: 0 }, 12000)
                     .easing(TWEEN.Easing.Quadratic.InOut)
                     .onUpdate(function() {
                         const c = parseInt(this.color);
@@ -129,11 +141,11 @@ export default class MainScene3D extends Scene3D
                     })
                     .start();
                 new TWEEN.Tween(this.camera.position)
-                    .to({ z: 1800 }, 12000)
+                    .to({ z: 1800 }, 24000)
                     .easing(TWEEN.Easing.Quadratic.InOut)
                     .start();
                 new TWEEN.Tween(this.stage.rotation)
-                    .to({ y: Math.PI * 10, z : Math.PI * 2 }, 15000)
+                    .to({ y: Math.PI * 12, z : Math.PI * 6 }, 24000)
                     .easing(TWEEN.Easing.Quadratic.Out)
                     .start();
                 setTimeout(() => {
@@ -145,7 +157,7 @@ export default class MainScene3D extends Scene3D
                 }, 1200);
                 setTimeout(() => {
                     this._$nanjing.fadeIn();
-                }, 15500);
+                }, 25500);
             }
         }, 1500);
     }
@@ -207,7 +219,7 @@ export default class MainScene3D extends Scene3D
                     const ball = this._passMeBall();
                     const pos = this.getPosition(x, y, 0, matrix);
                     new TWEEN.Tween(ball.position)
-                        .to(pos, Math.random() > 0.6 ? Math.random() * 5000 : Math.random() * 10000)
+                        .to(pos, Math.random() > 0.6 ? Math.random() * 10000 : Math.random() * 23000)
                         .easing(TWEEN.Easing.Quadratic.In)
                         .start();
                 }
@@ -349,8 +361,6 @@ export default class MainScene3D extends Scene3D
             }
             this._logoBallCount = count;
             this.prepareForLogo();
-
-            this.startCountDown();
         };
     }
 }

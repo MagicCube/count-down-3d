@@ -7,6 +7,13 @@ export default class Application extends mx.Application
         super("count-down-app");
 
         this._initMainScene();
+
+        $(document.body).on("keydown", e => {
+            if (e.keyCode === 32)
+            {
+                this._mainScene.start();
+            }
+        });
     }
 
     _initMainScene()

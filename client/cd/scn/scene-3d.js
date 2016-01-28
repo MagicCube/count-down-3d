@@ -29,7 +29,7 @@ export default class Scene3D extends mx.Scene
 
     _initRenderer()
     {
-        this._renderer = new THREE.WebGLRenderer();
+        this._renderer = new THREE.WebGLRenderer({ antialias: true });
         this._renderer.setSize(this.frame.width, this.frame.height);
         this.$container.append(this._renderer.domElement);
     }
