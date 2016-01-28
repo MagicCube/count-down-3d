@@ -1,24 +1,37 @@
-import Scene3D from "../scn/scene-3d";
+import MainScene3D from "../scn/main-scene-3d";
 
 export default class Application extends mx.Application
 {
-    _mainScene = null;
-
     constructor()
     {
         super("count-down-app");
 
-        this._mainScene = new Scene3D("main-scene", {
+        this._initMainScene();
+    }
+
+    _initMainScene()
+    {
+        this._mainScene = new MainScene3D("main-scene", {
             frame: { width: window.innerWidth, height: window.innerHeight }
         });
-        this.addSubview(this._mainScene);
-        console.log(this._mainScene.$element.parent());
+        this.addSubview(this.mainScene);
+    }
+
+    _mainScene = null;
+    get mainScene()
+    {
+        return this._mainScene;
     }
 
     run(args)
     {
         super.run(args);
+        this.loop();
+    }
 
-        this._mainScene.render();
+    loop()
+    {
+        this.mainScene.render();
+        window.requestAnimationFrame(this.loop.bind(this));
     }
 }
